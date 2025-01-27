@@ -2,7 +2,7 @@ package mypackage
 
 import "errors"
 
-// ConvIntToStr returns the word for the given integer (1-9) or an error if out of range
+// ConvIntToStr returns the word for the given integer (1-20) or an error if out of range
 func ConvIntToStr(n int) (string, error) {
 	switch n {
 	case 1:
@@ -23,6 +23,8 @@ func ConvIntToStr(n int) (string, error) {
 		return "Eight", nil
 	case 9:
 		return "Nine", nil
+	case 10:
+		return "Ten", nil
 	default:
 		return "", errors.New("number out of range")
 	}
