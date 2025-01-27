@@ -1,0 +1,33 @@
+name: CI
+
+on:
+  # push:
+  #   branches:
+  #     - main
+  pull_request:
+  merge_queue:
+    branches:
+      - main
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    - name: Install dependencies
+      run: go mod tidy
+
+    - name: Run tests with coverage
+      run: go test -v -coverprofile=coverage.out ./...
+
+    - name: Upload coverage to Codecov
+      uses: codecov/codecov-action
+      with:
+        files: coverage.out
+        flags: unittests
+        fail_ci_if_error: true
+        codecov_yml_path: codecov.yml
+        token: ${{ secrets.CODECOV_TOKEN }}

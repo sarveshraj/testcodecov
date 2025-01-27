@@ -1,0 +1,26 @@
+coverage:
+  # See https://docs.codecov.com/docs/commit-status for all parameters of this section.
+  status:
+    # Reports the project's overall coverage.
+    project: false
+
+    # Reports an individual PR's coverage, adjusted based on the lines changed.
+    patch:
+      default:
+        # Enforce code coverage with a target of 80%.
+        target: 80
+        informational: false
+
+    # It's possible for coverage of a file to change even if it's not modified in a specific PR.
+    # This line disables Codecov reporting that as a separate status entry.
+    changes: off
+
+# Post a comment on every PR with the coverage percentage and other relevant data.
+comment:
+  layout: "reach, diff, flags, files"
+  behavior: default
+  require_changes: false
+
+# Enable inline annotations on GitHub for better readability of the review.
+github_checks:
+  annotations: true
