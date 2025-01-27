@@ -13,7 +13,7 @@ jobs:
 
     steps:
     - name: Checkout code
-      uses: actions/checkout@v2
+      uses: actions/checkout@v4
 
     - name: Install dependencies
       run: go mod tidy
@@ -22,7 +22,7 @@ jobs:
       run: go test -v -coverprofile=coverage.out ./...
 
     - name: Upload coverage to Codecov
-      uses: codecov/codecov-action
+      uses: codecov/codecov-action@v5
       with:
         files: coverage.out
         flags: unittests
