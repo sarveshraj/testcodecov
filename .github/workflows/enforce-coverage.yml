@@ -1,18 +1,18 @@
-name: Enforce coverage
+name: Print status of Codecov patch workflow
 
 on:
   workflow_run:
-    workflows: ["codecov/patch"]
-    types: [completed]
+    workflows: ['codecov/patch']
+    types:
+      - completed
 
 jobs:
-  on-success:
+  print-status:
     runs-on: ubuntu-latest
-    if: ${{ github.event.workflow_run.conclusion == 'success' }}
+
     steps:
-      - run: echo 'The triggering workflow passed'
-  on-failure:
-    runs-on: ubuntu-latest
-    if: ${{ github.event.workflow_run.conclusion == 'failure' }}
-    steps:
-      - run: echo 'The triggering workflow failed'
+    - name: Print status
+      run: |
+        echo "Workflow run ID: ${{ github.event.workflow_run.id }}"
+        echo "Workflow run conclusion: ${{ github.event.workflow_run.conclusion }}"
+        echo "Workflow run status: ${{ github.event.workflow_run.status }}"
