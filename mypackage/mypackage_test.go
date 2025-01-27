@@ -9,6 +9,7 @@ func TestConvIntToStr(t *testing.T) {
 		err      bool
 	}{
 		{1, "One", false},
+		{2, "Two", false},
 		{5, "Five", false},
 		{8, "Eight", false},
 		{10, "Ten", false},
