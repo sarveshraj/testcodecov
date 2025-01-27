@@ -38,6 +38,11 @@ jobs:
       env:
         GH_TOKEN: ${{ github.token }}
       run: |
+        if [[ "${{ github.event_name }}" == "merge_group" ]]; then
+          echo "Running in merge queue, always returning success."
+          exit 0
+        fi
+
         echo "Polling Codecov status..."
         while true; do
           codecov_check_run=$(gh api repos/${{ github.repository }}/commits/${{ github.event.pull_request.head.sha }}/check-runs | jq -r '.check_runs[] | select(.name == "codecov/patch")')
