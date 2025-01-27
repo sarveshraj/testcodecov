@@ -38,8 +38,8 @@ jobs:
       env:
         GH_TOKEN: ${{ github.token }}
       run: |
-        if [[ "${{ github.event_name }}" == "merge_group" ]]; then
-          echo "Running in merge queue, always returning success."
+        if [[ "${{ github.event_name }}" != "pull_request" ]]; then
+          echo "Not running in pull request, always returning success."
           exit 0
         fi
 
