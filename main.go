@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	"log"
 
 	"github.com/sarveshraj/testcodecov/mypackage"
 )
@@ -9,8 +10,8 @@ import (
 func main() {
 	result, err := mypackage.ConvIntToStr(3)
 	if err != nil {
-		fmt.Println("Error:", err)
-	} else {
-		fmt.Println(result)
+		log.Fatalf("Error: %v", err)
 	}
+
+	fmt.Println(result)
 }
