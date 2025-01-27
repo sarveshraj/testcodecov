@@ -25,26 +25,6 @@ func ConvIntToStr(n int) (string, error) {
 		return "Nine", nil
 	case 10:
 		return "Ten", nil
-	case 11:
-		return "Eleven", nil
-	case 12:
-		return "Twelve", nil
-	case 13:
-		return "Thirteen", nil
-	case 14:
-		return "Fourteen", nil
-	case 15:
-		return "Fifteen", nil
-	case 16:
-		return "Sixteen", nil
-	case 17:
-		return "Seventeen", nil
-	case 18:
-		return "Eighteen", nil
-	case 19:
-		return "Nineteen", nil
-	case 20:
-		return "Twenty", nil
 	default:
 		return "", errors.New("number out of range")
 	}

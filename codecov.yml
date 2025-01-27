@@ -10,6 +10,7 @@ coverage:
         # Enforce code coverage with a target of 80%.
         target: 80
         informational: false
+        only_pulls: true
 
     # It's possible for coverage of a file to change even if it's not modified in a specific PR.
     # This line disables Codecov reporting that as a separate status entry.
